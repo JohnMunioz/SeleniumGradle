@@ -46,38 +46,38 @@ public class BasePage {
     public void navigateTo(String url) {
         driver.get(url);
     }
-    //Metodo para cerrar el browser
-    public static void closeBrowser() {
-        driver.quit();
-    }
     // Encuentra y devuelve un WebElement en la página utilizando un locator XPath, esperando a que esté presentente en el DOM
     private WebElement find(String locator) {
         return wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locator)));
     }
-
-    public void click(String locator) {
+    
+    public void clickElement(String locator) {
         find(locator).click();
     }
-
+    
     public void write(String locator, String keyToSend) {
         find(locator).clear();
         find(locator).sendKeys(keyToSend);
     }
-
+    
     public void selectFromDropdownByValue(String locator, String value) {
         Select dropdown = new Select(find(locator));
         dropdown.selectByValue(value);
     }
-
+    
     public void selectFromDropdownByIndex(String locator, int index) {
         Select dropdown = new Select(find(locator));
         dropdown.selectByIndex(index);
     }
-
+    
     public int dropdownSize(String locator) {
         Select dropdown = new Select(find(locator));
         List<WebElement> dropdownOptions = dropdown.getOptions();
         return dropdownOptions.size();
     }
     
+    //Metodo para cerrar el browser
+    public static void closeBrowser() {
+        driver.quit();
+    }
 }
