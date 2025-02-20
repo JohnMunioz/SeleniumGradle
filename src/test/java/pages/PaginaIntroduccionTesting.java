@@ -13,4 +13,3 @@ public class PaginaIntroduccionTesting extends BasePage {
    }   
 }
 
-//a[normalize-space()='Introducción al Testing de Software' and @href]
