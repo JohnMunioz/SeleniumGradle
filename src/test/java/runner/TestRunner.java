@@ -16,7 +16,7 @@ public class TestRunner {
 
         @AfterClass
         public static void tearDown() {
-            BasePage.closeBrowser();
+           BasePage.closeBrowser();
         }
     
 }

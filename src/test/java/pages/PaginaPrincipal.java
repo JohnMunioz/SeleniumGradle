@@ -4,6 +4,8 @@ package pages;
 public class PaginaPrincipal extends BasePage {
 
     public String sectionLink = "//a[normalize-space()='%s' and @href]";
+    public String elegirUnPlanButton = "//a[normalize-space()='Elegir Plan']";
+    
 
     public PaginaPrincipal() {
         super(driver);
@@ -17,5 +19,9 @@ public class PaginaPrincipal extends BasePage {
         //Reemplazar el marcador de posecion en sectionLink con el valor de la variable section
         String xpahtSection = String.format(sectionLink, section);
         clickElement(xpahtSection);
+    }
+
+    public void clickOnElegirPlanButton() {
+        clickElement(elegirUnPlanButton);
     }
 }

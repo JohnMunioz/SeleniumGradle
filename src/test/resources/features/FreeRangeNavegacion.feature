@@ -16,9 +16,14 @@ Feature: Navigation bar
 #        | Udemy     |
 #        | Academia  |      
 
-Scenario: Cousers are presented correctly to potential customers
+# Scenario: Cousers are presented correctly to potential customers
+#   Given I navigate to www.freerangetesters.com
+#   When I go to Cursos using the navigation bar
+#   Then I select introduccion al testing
+
+Scenario: Users can select a plan when signing up
     Given I navigate to www.freerangetesters.com
-    When I go to Cursos using the navigation bar
-    Then I select introduccion al testing
-
-
+    When I select Elegir Plan
+    Then I can validate the options in the checkout page
+   
+   

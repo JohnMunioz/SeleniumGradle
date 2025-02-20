@@ -2,16 +2,18 @@ package pages;
 
 
 import java.time.Duration;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
-import java.util.List;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 
 public class BasePage {
@@ -75,9 +77,19 @@ public class BasePage {
         List<WebElement> dropdownOptions = dropdown.getOptions();
         return dropdownOptions.size();
     }
-    
+
+    public List<String> getDropdownValues(String locator) {
+        Select dropdown = new Select(find(locator));
+        List<WebElement> dropdownOptions = dropdown.getOptions();
+        List<String> values = new ArrayList<>();
+        for (WebElement option : dropdownOptions) {
+            values.add(option.getText());
+        }
+        return values;
+    }
+
     //Metodo para cerrar el browser
     public static void closeBrowser() {
-        driver.quit();
+       driver.quit();
     }
 }
