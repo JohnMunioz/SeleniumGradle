@@ -51,14 +51,12 @@ public class FreeRangeSteps {
     introduccionPage.clickIntroduccionTestingLink();  
     }
 
-    
-
     @Then("^(?:I|The user|The client) can validate the options in the checkout page$")
     public void validateCheckoutOptions() {
         List<String> lista = registroPage.returnDropdownValues();
         List<String> listaEsperada = Arrays.asList("Academia: $16.99 / mes • 14 productos","Academia: $176 / año • 14 productos", "Free: Gratis • 3 productos");
         Assert.assertEquals(listaEsperada, lista);
-        
+ 
     }
 
     public void EjemploAssertions(){
